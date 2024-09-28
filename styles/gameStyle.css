@@ -1,0 +1,33 @@
+body {
+    font-family:"Open Sans", 'Poppins', sans-serif;
+    color: #000000;
+}
+
+.container {
+    margin-inline: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#canvas {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 680px;
+    height: 680px;
+}
+
+.block {
+    outline: 1px black solid;
+    font-size: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 220px;
+}
