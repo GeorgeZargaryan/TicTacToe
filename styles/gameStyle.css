@@ -1,6 +1,13 @@
 body {
     font-family: "Open Sans", 'Poppins', sans-serif;
     color: #000000;
+    background-color: #4cc9f0;
+}
+
+#gameState {
+    width: fit-content;
+    font-size: 36px;
+    color: white;
 }
 
 .container {
@@ -9,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 #canvas {
@@ -19,6 +27,8 @@ body {
     flex-wrap: wrap;
     width: 680px;
     height: 680px;
+    margin-bottom: 12px;
+
     & :has(.block:hover) .block:not(:hover) {
         filter: blur(4px)
     }
@@ -48,4 +58,22 @@ body {
 
 .ActiveO {
     color: #669BBC;
+}
+
+.btn {
+    background-color: #a7c957;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 4px 8px;
+    color: #f9f7f3;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all ease-in-out .3s;
+
+    &:hover {
+        color: white;
+        background-color: #bde266;
+        font-size: 26px;
+    }
 }
