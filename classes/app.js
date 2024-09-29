@@ -35,6 +35,7 @@ function initializeCanvas() {
 function restartGame() {
     for (let i = 0; i < blocks.length; i++) {
         blocks[i].textContent = ""
+        blocks[i].classList.remove("ActiveX", "ActiveO");
     }
     gameState.textContent = `X's turn!`;
     currPlayer = players[0]
@@ -53,6 +54,7 @@ function fillCanvas() {
                 return;
             }
             e.target.textContent = currPlayer;
+            e.target.classList.add("Active" + currPlayer);
             if (checkWin(currPlayer)) {
                 gameState.textContent = `Game end: ` + currPlayer + ` wins!!!`;
                 return;

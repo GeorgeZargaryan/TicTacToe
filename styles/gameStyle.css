@@ -1,5 +1,5 @@
 body {
-    font-family:"Open Sans", 'Poppins', sans-serif;
+    font-family: "Open Sans", 'Poppins', sans-serif;
     color: #000000;
 }
 
@@ -19,6 +19,9 @@ body {
     flex-wrap: wrap;
     width: 680px;
     height: 680px;
+    & :has(.block:hover) .block:not(:hover) {
+        filter: blur(4px)
+    }
 }
 
 .block {
@@ -30,4 +33,19 @@ body {
     align-items: center;
     width: 220px;
     height: 220px;
+    background: #fdf0d5;
+    transition: all .4s;
+    user-select: none;
+
+    &:hover {
+        background: #fdf0d556;
+    }
+}
+
+.ActiveX {
+    color: #C1121F;
+}
+
+.ActiveO {
+    color: #669BBC;
 }
