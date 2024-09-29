@@ -1,11 +1,11 @@
 var canvas = document.getElementById("canvas");
-const players = ["x", "o"];
+const players = ["X", "O"];
 const gameState = document.getElementById("gameState");
-
 const restartButton = document.getElementById("restartBtn");
-restartButton.addEventListener("click", () => {
-    startGame();
-})
+
+restartButton.addEventListener("click", (e) => {
+    restartGame();
+});
 
 var blocks = [];
 
@@ -26,56 +26,54 @@ function startGame() {
     initializeCanvas();
 }
 
-function initializeCanvas(canvas) {
+function initializeCanvas() {
     gameState.textContent = `X's turn`;
 
     fillCanvas();
-
-    
 }
 
-function restartButton() {
-    for(let i = 0; i < squares.length; i++) {
-        squares[i].textContent = ""
+function restartGame() {
+    for (let i = 0; i < blocks.length; i++) {
+        blocks[i].textContent = ""
     }
-    gameState.textContent= `X's turn!`;
+    gameState.textContent = `X's turn!`;
     currPlayer = players[0]
 }
 
 function fillCanvas() {
     console.log(blocks.length);
     canvas.innerHTML = ' ';
-        for (let i = 1; i < 10; i++) {
-            let block = document.createElement("div");
+    for (let i = 1; i < 10; i++) {
+        let block = document.createElement("div");
 
-            block.classList.add("block");
-            block.id = "block-" + i;
-            block.addEventListener("click", (e) => {
-                if (e.target.textContent !== '') {
-                    return;
-                }
-                e.target.textContent = currPlayer;
-                if (checkWin(currPlayer)) {
-                    gameState.textContent = `Game end: " + currPlayer + " wins!!!`;
-                    return;
-                }
-                if (checkTie()) {
-                    gameState.textContent = `Game is tied!!!`;
-                    return;
-                }
+        block.classList.add("block");
+        block.id = "block-" + i;
+        block.addEventListener("click", (e) => {
+            if (e.target.textContent !== '') {
+                return;
+            }
+            e.target.textContent = currPlayer;
+            if (checkWin(currPlayer)) {
+                gameState.textContent = `Game end: ` + currPlayer + ` wins!!!`;
+                return;
+            }
+            if (checkTie()) {
+                gameState.textContent = `Game is tied!!!`;
+                return;
+            }
 
-                currPlayer = (currPlayer === players[0]) ? players[1] : players[0];
+            currPlayer = (currPlayer === players[0]) ? players[1] : players[0];
 
-                if (currPlayer == players[0]) {
-                    gameState.textContent = `X's turn`;
-                } else {
-                    gameState.textContent = `O's turn`;
-                }
-            });
+            if (currPlayer == players[0]) {
+                gameState.textContent = `X's turn`;
+            } else {
+                gameState.textContent = `O's turn`;
+            }
+        });
 
-            blocks.push(block);
-        }
-        canvas.append(...blocks);
+        blocks.push(block);
+    }
+    canvas.append(...blocks);
 
 }
 
