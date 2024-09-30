@@ -1,6 +1,7 @@
 body
 {
     background-color: #4cc9f0;
+    font-family: "Open Sans", 'Poppins', sans-serif;
     /* background-color: #3a86ff; */
 }
 a
@@ -18,8 +19,18 @@ a
 }
 
 .title{
-    color: white;
+    color: #35aace;
     font-size: 36px;
+}
+
+.card
+{
+    margin-top: 60px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    width: 40%;
+    margin-inline: auto;
 }
 
 .mainMenu

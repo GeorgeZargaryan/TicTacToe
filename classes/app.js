@@ -7,9 +7,10 @@ restartButton.addEventListener("click", (e) => {
     restartGame();
 });
 
-var blocks = [];
+let blocks = [];
 
 let currPlayer = players[0];
+let gameEnded = false;
 
 const winning_combinations = [
     [0, 1, 2],
@@ -28,11 +29,12 @@ function startGame() {
 
 function initializeCanvas() {
     gameState.textContent = `X's turn`;
-
+    
     fillCanvas();
 }
 
 function restartGame() {
+    gameEnded = false;
     for (let i = 0; i < blocks.length; i++) {
         blocks[i].textContent = ""
         blocks[i].classList.remove("ActiveX", "ActiveO");
@@ -50,13 +52,14 @@ function fillCanvas() {
         block.classList.add("block");
         block.id = "block-" + i;
         block.addEventListener("click", (e) => {
-            if (e.target.textContent !== '') {
+            if (e.target.textContent !== '' || gameEnded == true) {
                 return;
             }
             e.target.textContent = currPlayer;
             e.target.classList.add("Active" + currPlayer);
             if (checkWin(currPlayer)) {
                 gameState.textContent = `Game end: ` + currPlayer + ` wins!!!`;
+                gameEnded = true;
                 return;
             }
             if (checkTie()) {
