@@ -1,0 +1,103 @@
+body {
+    font-family: "Open Sans", 'Poppins', sans-serif;
+    color: #000000;
+    background-color: #4cc9f0;
+    .modal-open{
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+#gameState {
+    width: fit-content;
+    font-size: 36px;
+    color: white;
+    margin: 8px 0;
+}
+
+.container {
+    margin-inline: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#canvas {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 640px;
+    height: 640px;
+    margin-bottom: 12px;
+
+    & :has(.block:hover) .block:not(:hover) {
+        filter: blur(4px)
+    }
+}
+
+.block {
+    outline: 1px black solid;
+    font-size: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 208px;
+    height: 208px;
+    background: #fdf0d5;
+    transition: all .4s;
+    user-select: none;
+
+    &:hover {
+        background: #fdf0d556;
+    }
+}
+
+.ActiveX {
+    color: #C1121F;
+}
+
+.ActiveO {
+    color: #669BBC;
+}
+
+.btn {
+    background-color: #a7c957;
+    border: none;
+    border-radius: 5px;
+    padding: 4px 8px;
+    color: #f9f7f3;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all ease-in-out .3s;
+
+    &:hover {
+        color: white;
+        background-color: #bde266;
+        font-size: 26px;
+    }
+}
+
+.modal
+{
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 20px;
+    position: absolute;
+    top: 30%;
+    display: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+#announcement{
+    padding: 30px 45px;
+    font-size: 36px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    color: #a7c957;
+    position: relative;
+}
