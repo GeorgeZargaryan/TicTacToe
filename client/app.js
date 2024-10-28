@@ -8,6 +8,7 @@ const players = ["X", "O"];
 const gameState = document.getElementById("gameState");
 const announcement = document.getElementById("announcement");
 const restartButton = document.getElementById("restartBtn");
+const stats = document.getElementById("statsTable");
 let currPlayer = players[0];
 let gameEnded = false;
 
@@ -45,6 +46,12 @@ const winning_combinations = [
     [2, 5, 8]
 ]
 
+function statsInit(statsObj) {
+    statsObj.forEach(element => {
+        stats.append(document.createElement("h2").textContent(`${element.key}:${element.value}`))
+    });
+}
+
 function click(id) {
     let block = blocks[id - 1];
 
@@ -60,6 +67,7 @@ function click(id) {
 
     if (checkWin(currPlayer)) {
         announcement.parentNode.style.display = 'block';
+        socket.emit("update-statistics", currPlayer);
         announcement.textContent = `Game end: ` + currPlayer + ` wins!!!`;
         gameEnded = true;
         return;
