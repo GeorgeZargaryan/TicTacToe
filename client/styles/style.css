@@ -1,16 +1,14 @@
-body
-{
+body {
     background-color: #4cc9f0;
     font-family: "Open Sans", 'Poppins', sans-serif;
     /* background-color: #3a86ff; */
 }
-a
-{
+
+a {
     text-decoration: none;
 }
 
-.container
-{
+.container {
     margin-inline: auto;
     width: 80%;
     display: flex;
@@ -18,13 +16,12 @@ a
     flex-direction: column;
 }
 
-.title{
+.title {
     color: #35aace;
     font-size: 36px;
 }
 
-.card
-{
+.card {
     margin-top: 60px;
     padding: 20px;
     background: white;
@@ -33,16 +30,14 @@ a
     margin-inline: auto;
 }
 
-.mainMenu
-{
+.mainMenu {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.btn
-{
+.btn {
     background-color: #a7c957;
     border: none;
     border-radius: 5px;
@@ -53,9 +48,16 @@ a
     font-size: 24px;
     transition: all ease-in-out .3s;
 
-    &:hover{
-        color:white;
+    &:hover {
+        color: white;
         background-color: #bde266;
         font-size: 26px;
     }
+}
+
+.roomsForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

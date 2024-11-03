@@ -9,8 +9,38 @@ const gameState = document.getElementById("gameState");
 const announcement = document.getElementById("announcement");
 const restartButton = document.getElementById("restartBtn");
 const stats = document.getElementById("statsTable");
+const roomsSelect = document.querySelector("#roomSelect");
+const createRoomBtn = document.querySelector("#createRoomBtn");
+const createRoomInput = document.querySelector("#createRoomInput");
+
 let currPlayer = players[0];
 let gameEnded = false;
+
+let room = "";
+
+roomsSelect.addEventListener('change', (e) => {
+    let selected = e.target.options[e.target.selectedIndex].value;
+
+    socket.emit("join-room", selected);
+});
+
+createRoomBtn.addEventListener('click', () =>{
+    room = createRoomInput.value;
+    socket.emit("join-room", room);
+});
+
+socket.emit('get_rooms');
+
+socket.on('rooms_list', (rooms) => {
+    rooms.forEach(element => {
+        let room = document.createElement('option');
+        room.text = element;
+
+        roomsSelect.appendChild(room);
+    });
+    console.log('Available rooms:', rooms);
+})
+
 
 socket.on("connect", () => {
     console.log(socket.id);
@@ -61,13 +91,13 @@ function click(id) {
 
     block.textContent = currPlayer;
 
-    socket.emit("block-click", { block: block.id.slice(-1), turn: currPlayer });
+    socket.emit("block-click", { block: block.id.slice(-1), turn: currPlayer }, room);
 
     block.classList.add("Active" + currPlayer);
 
     if (checkWin(currPlayer)) {
         announcement.parentNode.style.display = 'block';
-        socket.emit("update-statistics", currPlayer);
+        // socket.in(room).emit("update-statistics", currPlayer);
         announcement.textContent = `Game end: ` + currPlayer + ` wins!!!`;
         gameEnded = true;
         return;

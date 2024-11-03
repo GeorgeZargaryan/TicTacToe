@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles/gameStyle.css">
+    <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
@@ -28,6 +29,22 @@
         <button class="btn" id="restartBtn">Restart Game</button>
     </main>
 
+    <div class="roomsDiv card">
+        <h2 class="title">Select room</h2>
+        <div class="container">
+            <div>
+                <label for="createRoom">Enter room name: </label>
+                <input type="text" name="createRoom" id="createRoomInput">
+                <button type="submit" class="btn" id="createRoomBtn">Create</button>
+            </div>
+            <div>
+                <label for="selectRoom">Select Room: </label>
+                <select id="roomSelect" name="selectRoom">
+                    <option value="---No room---"></option>
+                </select>
+            </div>
+        </div>
+    </div>
     <script src="./app.js" type="module"> </script>
 </body>
 
