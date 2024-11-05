@@ -8,8 +8,10 @@ const players = ["X", "O"];
 const gameState = document.getElementById("gameState");
 const announcement = document.getElementById("announcement");
 const restartButton = document.getElementById("restartBtn");
-const stats = document.getElementById("statsTable");
+// const stats = document.getElementById("statsTable");
 const roomsSelect = document.querySelector("#roomSelect");
+const roomsTitle = document.querySelector("#roomTitle");
+const roomsDiv = document.querySelector("#roomsDiv");
 const createRoomBtn = document.querySelector("#createRoomBtn");
 const createRoomInput = document.querySelector("#createRoomInput");
 
@@ -20,13 +22,16 @@ let room = "";
 
 roomsSelect.addEventListener('change', (e) => {
     let selected = e.target.options[e.target.selectedIndex].value;
+    room = selected;
 
     socket.emit("join-room", selected);
+    changeRoom(selected);
 });
 
-createRoomBtn.addEventListener('click', () =>{
+createRoomBtn.addEventListener('click', () => {
     room = createRoomInput.value;
     socket.emit("join-room", room);
+    changeRoom(room);
 });
 
 socket.emit('get_rooms');
@@ -39,8 +44,7 @@ socket.on('rooms_list', (rooms) => {
         roomsSelect.appendChild(room);
     });
     console.log('Available rooms:', rooms);
-})
-
+});
 
 socket.on("connect", () => {
     console.log(socket.id);
@@ -76,11 +80,11 @@ const winning_combinations = [
     [2, 5, 8]
 ]
 
-function statsInit(statsObj) {
-    statsObj.forEach(element => {
-        stats.append(document.createElement("h2").textContent(`${element.key}:${element.value}`))
-    });
-}
+// function statsInit(statsObj) {
+//     statsObj.forEach(element => {
+//         stats.append(document.createElement("h2").textContent(`${element.key}:${element.value}`))
+//     });
+// }
 
 function click(id) {
     let block = blocks[id - 1];
@@ -175,4 +179,8 @@ function checkTie() {
 
 initializeCanvas(canvas);
 
-console.log(canvas);
+function changeRoom(room) {
+    roomsTitle.textContent = `Room: ${room}`;
+    roomsDiv.replaceChildren(roomsTitle);
+    console.log(room)
+}

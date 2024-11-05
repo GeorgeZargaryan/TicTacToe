@@ -7,22 +7,22 @@ body {
 a {
     text-decoration: none;
 }
-
+/* 
 .container {
     margin-inline: auto;
     width: 80%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
+} */
 
 .title {
     color: #35aace;
     font-size: 36px;
+    text-align: center;
 }
 
 .card {
-    margin-top: 60px;
     padding: 20px;
     background: white;
     border-radius: 8px;
@@ -53,11 +53,4 @@ a {
         background-color: #bde266;
         font-size: 26px;
     }
-}
-
-.roomsForm {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="vtiewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>| Tic-Tac-Toe |</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,31 +20,35 @@
         <div class="modal">
             <h2 id="announcement"></h2>
         </div>
-        <div id="canvas">
-
+        <div class="gameBlock">
+            <div>
+                <div id="canvas">
+                    
+                </div>
+                <button class="btn" id="restartBtn">Restart Game</button>
+            </div>
+            <div id="roomsDiv">
+                <h2 class="title" id="roomTitle">Select room</h2>
+                <div class="container">
+                    <div>
+                        <label for="createRoom" class="roomLabel">Create new room: </label>
+                        <input type="text" name="createRoom" class="roomInput" id="createRoomInput" placeholder="Enter Room Name">
+                        <button type="submit" class="" id="createRoomBtn">Create</button>
+                    </div>
+                    <div>
+                        <label for="selectRoom" class="roomLabel">Select Room: </label>
+                        <select id="roomSelect" name="selectRoom" class="roomInput">
+                            <option value="---No room---"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="statsTable" class="stats">
-
-        </div>
-        <button class="btn" id="restartBtn">Restart Game</button>
+        <!-- <div id="statsTable" class="stats">
+        </div> -->
     </main>
 
-    <div class="roomsDiv card">
-        <h2 class="title">Select room</h2>
-        <div class="container">
-            <div>
-                <label for="createRoom">Enter room name: </label>
-                <input type="text" name="createRoom" id="createRoomInput">
-                <button type="submit" class="btn" id="createRoomBtn">Create</button>
-            </div>
-            <div>
-                <label for="selectRoom">Select Room: </label>
-                <select id="roomSelect" name="selectRoom">
-                    <option value="---No room---"></option>
-                </select>
-            </div>
-        </div>
-    </div>
+
     <script src="./app.js" type="module"> </script>
 </body>
 

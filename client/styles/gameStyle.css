@@ -13,27 +13,38 @@ body {
     width: fit-content;
     font-size: 36px;
     color: white;
-    margin: 8px 0;
+    margin: 8px auto;
 }
 
 .container {
     margin-inline: auto;
-    width: 80%;
+    width: 93%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
+}
+
+.gameBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#roomTitle{
+    margin: 0;
 }
 
 #canvas {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    width: 640px;
-    height: 640px;
+    width: 520px;
+    height: 520px;
     margin-bottom: 12px;
+    background-color: #fff;
 
     & :has(.block:hover) .block:not(:hover) {
         filter: blur(4px)
@@ -41,20 +52,21 @@ body {
 }
 
 .block {
+    border-radius: 10px;
     outline: 1px black solid;
     font-size: 120px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 208px;
-    height: 208px;
+    width: 165px;
+    height: 165px;
     background: #fdf0d5;
     transition: all .4s;
     user-select: none;
 
     &:hover {
-        background: #fdf0d556;
+        background: #fdf0d5d8;
     }
 }
 
@@ -102,9 +114,20 @@ body {
     position: relative;
 }
 
-.roomsDiv {
-    position: absolute;
-    top: 30%;
-    max-width: 20%;
-    right: 2%;
+.roomInput {
+    padding: 4px 8px;
+    margin: 10px 0 2px 0;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+#roomsDiv {
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    width: 290px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

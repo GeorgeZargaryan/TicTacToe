@@ -33,8 +33,8 @@ io.on("connection", (socket) => {
 
     socket.on("block-click", (obj, room) => {
         console.log(obj);
+        console.log(room);
         io.sockets.in(room).emit('receive-click', obj);
-        // socket.broadcast.emit('receive-click', obj);
     });
     socket.on("restart-click", () => {
         socket.broadcast.emit("restart-game");
